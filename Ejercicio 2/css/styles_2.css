@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+/********************* Inico ********************/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header,
+footer {
+    background-color: green;
+}
+
+nav {
+    background-color: red;
+    padding: 1rem 0;
+}
+
+article[id^="not"] {
+    background-color: lightseagreen;
+}
+
+article[id^="art"] {
+    background-color: blue;
+}
+
+aside {
+    background-color: orange;
+    padding: 1rem 0;
+
+}
+
+article,
+footer {
+    border: 2px solid white;
+    padding: 1rem 0;
+}
+
+/********************************************************/
+/*                       Vista Movil                    */
+/********************************************************/
+
+:root {
+    font-size: 3.3vw;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "hd" "nv" "nt" "at" "bn";
+}
+
+header {
+    grid-area: hd;
+}
+
+nav {
+    grid-area: nv;
+    display: flex;
+}
+
+nav>ul{
+    margin: 0 2rem;
+}
+
+section#noticias {
+    grid-area: nt;
+}
+
+section#articulos {
+    grid-area: at;
+}
+
+aside#banners {
+    grid-area: bn;
+}
+aside#banners>ul{
+    margin:0 2rem;
+}
+
+footer {
+    display: none;
+}
+
+/********************************************************/
+/*                       Vista Tablet                   */
+/********************************************************/
+@media (min-width:768px) {
+    :root {
+        font-size: 1.7vw;
+    }
+
+    body {
+        width: 95%;
+        margin: 0 auto;
+        grid-template-areas: "hd" "nv" "nt" "at" "ft" "bn";
+    }
+
+    footer{
+        grid-area: ft;
+        display: block;
+    }
+
+    section#noticias {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "n1 n1" "n2 n3";
+    }
+
+    article#not1{
+        grid-area: n1;
+    }
+
+    article#not2{
+        grid-area: n2;
+    }
+
+    article#not3{
+        grid-area: n3;
+    }
+
+    section#articulos{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    aside#banners>ul{
+       display: flex;
+    }
+    aside#banners>ul>li{
+        margin: 0.5rem 3rem;
+    }
+}
+
+/********************************************************/
+/*                       Vista PC                       */
+/********************************************************/
+
+@media(min-width: 992px) {
+
+    :root {
+        font-size: 1.3vw;
+    }
+    body {
+        width: 90%;
+        grid-template-columns:3fr 1fr;
+        grid-template-areas: "hd hd" "nv nv" "nt bn" "at bn" "ft bn";
+    }
+
+    section#articulos{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "a1 a2" "a3 a4" "a5 a5";
+    }
+
+    article#art1{
+        grid-area: a1;
+    }
+
+    article#art2{
+        grid-area: a2;
+    }
+
+    article#art3{
+        grid-area: a3;
+    }
+
+    article#art4{
+        grid-area: a4;
+    }
+
+    article#art5{
+        grid-area: a5;
+    }
+
+    aside#banners>ul{
+        display: flex;
+        flex-direction: column;
+     }
+     aside#banners>ul>li{
+         margin: 0.5rem;
+     }
+}

@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+/********************* Inico ********************/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+header {
+    background-color: green;
+}
+
+nav {
+    background-color: red;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+article[id^="not"] {
+    background-color: lightseagreen;
+}
+
+article[id^="art"] {
+    background-color: blue;
+}
+
+footer,
+section#noticias>p {
+    background-color: orange;
+    padding: 1rem 0;
+
+}
+
+article,
+footer {
+    border: 2px solid white;
+    padding: 1rem 0;
+}
+
+/********************************************************/
+/*                       Vista Movil                    */
+/********************************************************/
+
+:root {
+    font-size: 3.3vw;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "hd" "hs" "nt" "at" "ft";
+}
+
+header {
+    grid-area: hd;
+}
+
+nav {
+    display: none;
+}
+
+section#noticias>p {
+    grid-area: hs;
+}
+
+section#noticias {
+    grid-area: nt;
+}
+
+section#articulos {
+    grid-area: at;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer {
+    grid-area: ft;
+}
+
+/********************************************************/
+/*                       Vista Tablet                   */
+/********************************************************/
+
+@media (min-width:768px) {
+    :root {
+        font-size: 1.7vw;
+    }
+
+    body {
+        width: 95%;
+        margin: 0 auto;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: "hd hd" "nv hs" "nv nt" "nv at" "ft ft";
+    }
+
+    nav {
+        grid-area: nv;
+        display: block;
+    }
+
+    section#articulos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+/********************************************************/
+/*                       Vista PC                       */
+/********************************************************/
+
+@media(min-width: 992px) {
+    :root {
+        font-size: 1.3vw;
+    }
+
+    body {
+        width: 90%;
+        grid-template-columns: 1fr 4fr;
+    }
+    
+    section#articulos {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    section#noticias>div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+}

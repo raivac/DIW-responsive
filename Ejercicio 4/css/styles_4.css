@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/********************* Inico ********************/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+
+}
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header,div{
+    border: 2px solid white;
+    padding: 1rem 0;
+}
+
+/********************************************************/
+/*                       Vista Movil                    */
+/********************************************************/
+:root {
+    font-size: 3.3vw;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "hd" "st" "ft";
+}
+
+header {
+    grid-area: hd;
+    background-color: orange;
+    text-align: center;
+}
+
+section{
+    grid-area: st;
+}
+
+div#d1 {
+    background-color: red;
+}
+
+div#d2 {
+    background-color: cyan;
+    text-align: center;
+}
+
+div#d3 {
+    background-color: red;
+    text-align: right;
+}
+
+footer {
+    grid-area: ft;
+    text-align: center;
+}
+
+footer>div{
+    background-color: yellow;
+}
+
+
+/********************************************************/
+/*                       Vista Tablet                   */
+/********************************************************/
+
+@media (min-width:768px) {
+    :root {
+        font-size: 1.7vw;
+    }
+
+    body {
+        width: 95%;
+        margin: 0 auto;
+    }
+    header{
+        background-color: cyan;
+        text-align: left;
+    }
+    
+    section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "d1 d2" "d3 d3";
+    }
+
+    div#d1 {
+        grid-area: d1;
+        background-color: red;
+    }
+    
+    div#d2 {
+        grid-area: d2;
+        text-align: right;
+        background-color: red;
+    }
+    
+    div#d3 {
+        grid-area: d3;
+        background-color: lawngreen;
+        text-align: center;
+    }
+
+}
+
+/********************************************************/
+/*                       Vista PC                       */
+/********************************************************/
+
+@media(min-width: 992px) {
+    :root {
+        font-size: 1.3vw;
+    }
+
+    body {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    header{
+        background-color: lightgreen;
+    }
+    section{
+        display: flex;
+        justify-content: space-around;
+       
+    }
+    section>div[id^="d"]{
+        width: 100%;
+        background-color: red;
+        height: 25rem;
+    }
+    footer{
+        display: flex;
+    }
+    footer>div{
+        width: 100%;
+    }
+    div#d1 {
+        text-align: center;
+    }
+    
+    div#d2 {
+       text-align: center;
+    }
+
+    div#d3 {
+        background-color: red;
+    }
+}
